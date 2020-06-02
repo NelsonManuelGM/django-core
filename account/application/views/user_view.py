@@ -1,3 +1,13 @@
-from django.shortcuts import render
+"""user view module"""
+from django.contrib.auth import get_user_model
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+from account.application.serializers.user_serializer import UserSerializer
+
+
+# pylint: disable=too-many-ancestors
+class UserView(ModelViewSet):
+    """user view class"""
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
+    http_method_names = ['post']

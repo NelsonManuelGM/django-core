@@ -10,6 +10,7 @@ from djcore.inject import config_inject
 class TestCaseCore(TestCase):
     """Parent class for system tests"""
 
+    # pylint: disable=too-few-public-methods
     class Meta:
         """meta class"""
         abstract = True
@@ -21,6 +22,8 @@ class TestCaseCore(TestCase):
 
 class APITestCaseCore(APITestCase, TestCase):
     """Parent class for system tests"""
+
+    # pylint: disable=too-few-public-methods
     class Meta:
         """meta class"""
         abstract = True
@@ -31,7 +34,7 @@ class APITestCaseCore(APITestCase, TestCase):
 
     @staticmethod
     @inject.autoparams()
-    def create_fake_user(faker: Faker):
+    def create_fake_user(faker: Faker) -> dict:
         """create fake user function"""
         first_name = faker.last_name()
         return {
