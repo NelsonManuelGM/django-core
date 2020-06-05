@@ -10,5 +10,6 @@ It includes:
 - PostgrSQL connection
 - MongoDB connection (comming soon)
 - API documentation using Swagger (comming soon)
+... some things comming soon
 
 ...just for fun!
