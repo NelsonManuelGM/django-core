@@ -13,7 +13,7 @@ class UserSerializer(ModelSerializer):
     class Meta:
         """UserSerializer meta class"""
         model = get_user_model()
-        fields = '__all__'
+        fields = ['first_name', 'last_name', 'email', 'phone_number']
 
     def validate(self, attrs) -> {}:
         """
@@ -25,7 +25,8 @@ class UserSerializer(ModelSerializer):
 
     # pylint: disable=arguments-differ
     @inject.autoparams()
-    def create(self, validated_data, create_user_service: CreateUserService) -> \
+    def create(self, validated_data,
+               create_user_service: CreateUserService) -> \
             get_user_model():
         """
         Serializer user create

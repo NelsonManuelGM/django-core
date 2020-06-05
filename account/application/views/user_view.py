@@ -10,4 +10,4 @@ class UserView(ModelViewSet):
     """user view class"""
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
-    http_method_names = ['post']
+    http_method_names = ['post', 'get']

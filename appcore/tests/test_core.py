@@ -34,7 +34,7 @@ class APITestCaseCore(APITestCase, TestCase):
 
     @staticmethod
     @inject.autoparams()
-    def create_fake_user(faker: Faker) -> dict:
+    def generate_fake_user_dict(faker: Faker) -> dict:
         """create fake user function"""
         first_name = faker.last_name()
         return {
