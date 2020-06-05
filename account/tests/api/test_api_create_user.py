@@ -18,24 +18,30 @@ class CreateUserTestCase(APITestCaseCore):
 
     def test_list_user(self):
         """test get user function"""
-        # pylint: disable=no-value-for-parameter
-        user1_data = self.generate_fake_user_dict()
-        user_obj_1 = get_user_model()()
-        user_obj_1.fill(user1_data)
-        user_obj_1.save()
 
-        # pylint: disable=no-value-for-parameter
-        user2_data = self.generate_fake_user_dict()
-        user_obj_2 = get_user_model()()
-        user_obj_2.fill(user2_data)
-        user_obj_2.save()
+        quantity = 10
+        users = []
+        for i in range(quantity):
+            # pylint: disable=no-value-for-parameter
+            user1_data = self.generate_fake_user_dict()
+            user_obj = get_user_model()()
+            user_obj.fill(user1_data)
+            user_obj.save()
+            users.append(user_obj)
 
         response = self.client.get(self.url,
                                    content_type='application/json')
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-        json.loads(force_str(response.content))
+        json_data = json.loads(response.content)
+
+        results = json_data['results']
+
+        for i in range(quantity):
+            self.assertEqual(users[i].first_name, results[i]['first_name'])
+
+        self.assertEqual(json_data['count'], quantity)
 
     def test_create_user(self):
         """test to create user"""
