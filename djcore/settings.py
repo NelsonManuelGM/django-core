@@ -83,7 +83,7 @@ TEMPLATES = [
     },
 ]
 
-STATIC_ROOT = "/var/www/dj-core.com/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'appcore/staticfiles')
 
 WSGI_APPLICATION = 'djcore.wsgi.application'
 
