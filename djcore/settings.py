@@ -83,6 +83,8 @@ TEMPLATES = [
     },
 ]
 
+STATIC_ROOT = "/var/www/dj-core.com/static/"
+
 WSGI_APPLICATION = 'djcore.wsgi.application'
 
 # Database
