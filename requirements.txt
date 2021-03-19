@@ -12,7 +12,7 @@ distlib==0.3.0
 distro==1.4.0
 Django==3.0.6
 django-cors==0.1
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-simplejwt==4.4.0
 Faker==4.1.0
 faker-e164==0.1.0
