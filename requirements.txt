@@ -10,7 +10,7 @@ contextlib2==0.6.0
 coverage==5.1
 distlib==0.3.0
 distro==1.4.0
-Django==3.0.6
+Django==3.0.14
 django-cors==0.1
 djangorestframework==3.11.0
 djangorestframework-simplejwt==4.4.0
